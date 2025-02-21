@@ -79,15 +79,21 @@ const ChatContainer = () => {
                 </time>
               </div>
               <div
-                className={`chat-bubble flex flex-col ${
-                  isSent ? "bg-primary text-primary-content" : "bg-base-200"
+                className={`flex flex-col ${
+                  message.text
+                    ? `chat-bubble ${
+                        isSent
+                          ? "bg-primary text-primary-content"
+                          : "bg-base-200"
+                      }`
+                    : ""
                 }`}
               >
                 {message.image && (
                   <img
                     src={message.image}
                     alt="Attachment"
-                    className="sm:max-w-[200px] rounded-md mb-2"
+                    className="sm:max-w-[200px] rounded-md"
                   />
                 )}
                 {message.text && <p>{message.text}</p>}
